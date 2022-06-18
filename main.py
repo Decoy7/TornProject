@@ -45,26 +45,6 @@ def create_app():
         except:
             return render_template("404.html"), 404
 
-    # @app.route("/leaderboard")
-    # def leaderboard():
-    #     con = sqlite3.connect("/home/michael/repos/python/TornDatabase/players.db")
-    #     cur = con.cursor()
-    #     resp = cur.execute('SELECT * FROM Torn').fetchall()
-    #     con.close()
-    #     p_id = []
-    #     p_name = []
-    #     p_status = []
-    #     p_country = []
-    #     p_timestamp = []
-    #     for item in resp:
-    #         p_id.append(item[0])
-    #         p_name.append(item[1])
-    #         p_status.append(item[2])
-    #         p_country.append(item[3])
-    #         p_timestamp.append(item[4])
-    #     length = len(p_id)
-    #     return render_template("leaderboard.html", resp=resp, p_id=p_id, p_name=p_name, p_status=p_status, p_country=p_country, p_timestamp=p_timestamp, length=length)
-
     @app.route("/leaderboard", methods=["GET", "POST"])
     def leaderboard():
         if request.method == "POST":
@@ -72,7 +52,8 @@ def create_app():
             con = sqlite3.connect(
                 "/home/michael/repos/python/TornDatabase/players.db")
             cur = con.cursor()
-            resp = cur.execute(f'SELECT * FROM Torn WHERE Torn_ID == "{user}";').fetchall()
+            resp = cur.execute(
+                f'SELECT * FROM Torn WHERE Torn_ID == "{user}";').fetchall()
             p_id = []
             p_name = []
             p_status = []
