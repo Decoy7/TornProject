@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Travelling{% endblock %}
+{% block travelling_active %}active{% endblock %}
+
+{% block content %}
+<table class="table table-dark align-middle">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Player</th>
+            <th scope="col">Status</th>
+            <th scope="col">Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set count = namespace(value=1) %}
+        {% for key,value in travelling.items() %}
+        <tr>
+            <th scope="row">
+                {{ count.value }} 
+                {% set count.value = count.value + 1 %}
+            </th>
+            <td><a href="https://www.torn.com/profiles.php?NID={{+key}}" target="_blank">{{ key }}</a></td>
+            <td>{{ value }}</td>
+            <td>
+                {% if "Africa" in value %}
+                <img src="/static/images/south-africa.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "UAE" in value %}
+                <img src="/static/images/united-arab-emirates.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Kingdom" in value %}
+                <img src="/static/images/united-kingdom.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Argentina" in value %}
+                <img src="/static/images/argentina.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Canada" in value %}
+                <img src="/static/images/canada.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Islands" in value %}
+                <img src="/static/images/cayman-islands.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "China" in value %}
+                <img src="/static/images/china.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Hawaii" in value %}
+                <img src="/static/images/hawaii.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Japan" in value %}
+                <img src="/static/images/japan.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Mexico" in value %}
+                <img src="/static/images/mexico.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+
+                {% if "Switzerland" in value %}
+                <img src="/static/images/switzerland.png" style="width: 35px; height: 35px;" />
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
