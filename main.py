@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Flask, render_template, request, send_file, send_from_directory
+from flask import Flask, render_template, request, send_file
 from json import load
 import sqlite3
 from os.path import getsize
