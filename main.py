@@ -1,6 +1,8 @@
-from flask import Flask, render_template, request
+from crypt import methods
+from flask import Flask, render_template, request, send_file, send_from_directory
 from json import load
 import sqlite3
+from os.path import getsize
 
 
 def create_app():
@@ -73,6 +75,12 @@ def create_app():
 
     @app.route("/about")
     def about():
-        return render_template("about.html")
+        size = getsize("/home/michael/repos/python/TornDatabase/players.db")
+        return render_template("about.html", size=round(size/1024/1024, 2))
+
+    @app.route("/database")
+    def download():
+        path = r"/home/michael/repos/python/TornDatabase/players.db"
+        return send_file(path, as_attachment=True)
 
     return app
