@@ -7,16 +7,14 @@ from os.path import getsize
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'dwaskdhygwkasdjlkasgfdebhjqsja'
+    app.config['SECRET_KEY'] = ""
 
     @app.route("/abroad")
     @app.route("/")
     def abroad():
         try:
-            abroad_file = open(
-                "/home/michael/repos/python/TornFlightListChecker/abroad_ok.json")
-            hosp_file = open(
-                "/home/michael/repos/python/TornFlightListChecker/abroad_hospital.json")
+            abroad_file = open("/home/michael/repos/python/TornFlightListChecker/abroad_ok.json")
+            hosp_file = open("/home/michael/repos/python/TornFlightListChecker/abroad_hospital.json")
             hosp = load(hosp_file)
             hosp_file.close()
             abroad = load(abroad_file)
@@ -28,8 +26,7 @@ def create_app():
     @app.route("/travelling")
     def travelling():
         try:
-            travelling_file = open(
-                "/home/michael/repos/python/TornFlightListChecker/travelling.json")
+            travelling_file = open("/home/michael/repos/python/TornFlightListChecker/travelling.json")
             travelling = load(travelling_file)
             travelling_file.close()
             return render_template("travelling.html", travelling=travelling)
@@ -39,8 +36,7 @@ def create_app():
     @app.route("/returning")
     def returning():
         try:
-            returning_file = open(
-                "/home/michael/repos/python/TornFlightListChecker/returning.json")
+            returning_file = open("/home/michael/repos/python/TornFlightListChecker/returning.json")
             returning = load(returning_file)
             returning_file.close()
             return render_template("returning.html", returning=returning)
@@ -51,11 +47,9 @@ def create_app():
     def leaderboard():
         if request.method == "POST":
             user = str(request.form["torn_id"])
-            con = sqlite3.connect(
-                "/home/michael/repos/python/TornDatabase/players.db")
+            con = sqlite3.connect("/home/michael/repos/python/TornDatabase/players.db")
             cur = con.cursor()
-            resp = cur.execute(
-                f'SELECT * FROM Torn WHERE Torn_ID == "{user}";').fetchall()
+            resp = cur.execute(f'SELECT * FROM Torn WHERE Torn_ID == "{user}";').fetchall()
             p_id = []
             p_name = []
             p_status = []
@@ -70,8 +64,47 @@ def create_app():
             length = len(p_id)
             con.close()
             return render_template("leaderboard.html", p_id=p_id, p_name=p_name, p_status=p_status, p_country=p_country, p_timestamp=p_timestamp, length=length)
-        else:
-            return render_template("leaderboard.html")
+        elif request.method == "GET":
+            con = sqlite3.connect("/home/michael/repos/python/TornDatabase/leaderboard.db")
+            cur = con.cursor()
+
+            multiple_choice = cur.execute('SELECT * FROM Leaderboard').fetchall()
+
+            ids = []
+            names = []
+            mexico = []
+            canada = []
+            hawaii = []
+            uk = []
+            argentina = []
+            switzerland = []
+            china = []
+            japan = []
+            uae = []
+            sa = []
+            ci = []
+
+            for item in multiple_choice:
+                ids.append(item[0])
+                names.append(item[1])
+                mexico.append(item[2])
+                canada.append(item[3])
+                hawaii.append(item[4])
+                uk.append(item[5])
+                argentina.append(item[6])
+                switzerland.append(item[7])
+                china.append(item[8])
+                japan.append(item[9])
+                uae.append(item[10])
+                sa.append(item[11])
+                ci.append(item[12])
+
+
+            length = len(ids)
+
+            con.close()
+            return render_template("leaderboard_multiple.html", ids=ids, names=names, length=length, mexico=mexico, canada=canada, hawaii=hawaii, uk=uk, argentina=argentina, switzerland=switzerland, china=china, japan=japan, uae=uae, sa=sa, ci=ci)
+
 
     @app.route("/about")
     def about():
