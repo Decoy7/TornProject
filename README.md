@@ -1,7 +1,7 @@
 # Torn Flight Site For Factions
 
 ### Features
-- Database ORM (flask-sqlalchemy)
+- Database ORM (sqlite3)
 
 ### How to Run
 
