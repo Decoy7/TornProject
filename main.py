@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Flask, render_template, request, send_file
 from json import load
 import sqlite3
