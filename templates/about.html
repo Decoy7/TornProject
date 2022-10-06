@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
 {% block title %}About{% endblock %}
 {% block about_active %}active{% endblock %}
+
+{% block last_update %} Last update: {{ time[0][0] }} UTC {% endblock %}
+
 {% block content %}
 <center>
     <div class="text-center p-3" style="color: azure; font-size: 18px;">
         Made by:
         <a class="text-light" href="https://www.torn.com/profiles.php?XID=2648562" target="_blank">
-            <img src="/static/images/LUL.jpg" width="60px" height="60px" alt="Decoy99">
+            <img src="/static/images/LUL.jpg" width="60px" height="60px">
         </a>
         <a class="text-light" href="https://www.torn.com/profiles.php?XID=2648562" target="_blank">Decoy99[2648562]</a>
         <p>Flag icons by

@@ -2,6 +2,8 @@
 {% block title %}Travelling{% endblock %}
 {% block travelling_active %}active{% endblock %}
 
+{% block last_update %} Last update: {{ time[0][0] }} UTC {% endblock %}
+
 {% block content %}
 <table class="table table-dark align-middle">
     <thead>
@@ -14,56 +16,56 @@
     </thead>
     <tbody>
         {% set count = namespace(value=1) %}
-        {% for key,value in travelling.items() %}
+        {% for item in range(names | length) %}
         <tr>
             <th scope="row">
                 {{ count.value }} 
                 {% set count.value = count.value + 1 %}
             </th>
-            <td><a href="https://www.torn.com/profiles.php?NID={{key}}" target="_blank">{{ key }}</a></td>
-            <td>{{ value }}</td>
+            <td><a href="https://www.torn.com/profiles.php?NID={{names[item]}}" target="_blank">{{ names[item] }}</a></td>
+            <td>{{ status[item] }}</td>
             <td>
-                {% if "Africa" in value %}
+                {% if "Africa" in status[item] %}
                 <img src="/static/images/south-africa.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "UAE" in value %}
+                {% if "UAE" in status[item] %}
                 <img src="/static/images/united-arab-emirates.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Kingdom" in value %}
+                {% if "Kingdom" in status[item] %}
                 <img src="/static/images/united-kingdom.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Argentina" in value %}
+                {% if "Argentina" in status[item] %}
                 <img src="/static/images/argentina.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Canada" in value %}
+                {% if "Canada" in status[item] %}
                 <img src="/static/images/canada.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Islands" in value %}
+                {% if "Islands" in status[item] %}
                 <img src="/static/images/cayman-islands.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "China" in value %}
+                {% if "China" in status[item] %}
                 <img src="/static/images/china.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Hawaii" in value %}
+                {% if "Hawaii" in status[item] %}
                 <img src="/static/images/hawaii.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Japan" in value %}
+                {% if "Japan" in status[item] %}
                 <img src="/static/images/japan.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Mexico" in value %}
+                {% if "Mexico" in status[item] %}
                 <img src="/static/images/mexico.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Switzerland" in value %}
+                {% if "Switzerland" in status[item] %}
                 <img src="/static/images/switzerland.png" style="width: 35px; height: 35px;" />
                 {% endif %}
             </td>
