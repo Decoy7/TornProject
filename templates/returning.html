@@ -14,56 +14,56 @@
     </thead>
     <tbody>
         {% set count = namespace(value=1) %}
-        {% for key,value in returning.items() %}
+        {% for name in names %}
         <tr>
             <th scope="row">
                 {{ count.value }} 
                 {% set count.value = count.value + 1 %}
             </th>
-            <td><a href="https://www.torn.com/profiles.php?NID={{key}}" target="_blank">{{ key }}</a></td>
-            <td>{{ value }}</td>
+            <td><a href="https://www.torn.com/profiles.php?NID={{key}}" target="_blank">{{ name }}</a></td>
+            <td>{{ status }}</td>
             <td>
-                {% if "Africa" in value %}
+                {% if "Africa" in status %}
                 <img src="/static/images/south-africa.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "UAE" in value %}
+                {% if "UAE" in status %}
                 <img src="/static/images/united-arab-emirates.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Kingdom" in value %}
+                {% if "Kingdom" in status %}
                 <img src="/static/images/united-kingdom.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Argentina" in value %}
+                {% if "Argentina" in status %}
                 <img src="/static/images/argentina.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Canada" in value %}
+                {% if "Canada" in status %}
                 <img src="/static/images/canada.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Islands" in value %}
+                {% if "Islands" in status %}
                 <img src="/static/images/cayman-islands.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "China" in value %}
+                {% if "China" in status %}
                 <img src="/static/images/china.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Hawaii" in value %}
+                {% if "Hawaii" in status %}
                 <img src="/static/images/hawaii.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Japan" in value %}
+                {% if "Japan" in status %}
                 <img src="/static/images/japan.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Mexico" in value %}
+                {% if "Mexico" in status %}
                 <img src="/static/images/mexico.png" style="width: 35px; height: 35px;" />
                 {% endif %}
 
-                {% if "Switzerland" in value %}
+                {% if "Switzerland" in status %}
                 <img src="/static/images/switzerland.png" style="width: 35px; height: 35px;" />
                 {% endif %}
             </td>
