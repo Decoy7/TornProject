@@ -23,10 +23,10 @@ def get_members_ids(faction_id):
     return players
 
 
-con_leaderboard = sqlite3.connect("/home/michael/repos/python/TornProject/API/leaderboard.db")
+con_leaderboard = sqlite3.connect("TornProject/API/leaderboard.db")
 cur_leaderboard = con_leaderboard.cursor()
 
-con_players = sqlite3.connect("/home/michael/repos/python/TornProject/API/players.db")
+con_players = sqlite3.connect("TornProject/API/players.db")
 cur_players = con_players.cursor()
 
 players = {}

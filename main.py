@@ -7,10 +7,10 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = "" #Your secret key heres
 
-    con_torn = sqlite3.connect("/home/michael/repos/python/TornProject/API/players.db")
+    con_torn = sqlite3.connect("TornProject/API/players.db")
     cur_torn = con_torn.cursor()
 
-    con_leaderboard = sqlite3.connect("/home/michael/repos/python/TornProject/API/leaderboard.db")
+    con_leaderboard = sqlite3.connect("TornProject/API/leaderboard.db")
     cur_leaderboard = con_leaderboard.cursor()
 
     @app.route("/abroad")
@@ -122,14 +122,14 @@ def create_app():
 
     @app.route("/about")
     def about():
-        size = getsize("/home/michael/repos/python/TornProject/API/players.db")
+        size = getsize("TornProject/API/players.db")
         time = cur_torn.execute(f'SELECT Timestamp FROM Torn ORDER BY ROWID DESC LIMIT 1;').fetchall()
 
         return render_template("about.html", size=round(size/1024/1024, 2), time=time)
 
     @app.route("/database")
     def download():
-        path = r"/home/michael/repos/python/TornProject/API/players.db"
+        path = r"TornProject/API/players.db"
 
         return send_file(path, as_attachment=True)
 

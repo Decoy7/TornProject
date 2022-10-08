@@ -6,7 +6,7 @@ from json import loads
 from datetime import datetime
 import sqlite3
 
-con = sqlite3.connect("/home/michael/repos/python/TornProject/API/players.db")
+con = sqlite3.connect("TornProject/API/players.db")
 cur = con.cursor()
 
 API = "" #your API key here
