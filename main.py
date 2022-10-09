@@ -127,6 +127,10 @@ def create_app():
 
         return render_template("about.html", size=round(size/1024/1024, 2), time=time)
 
+    @app.route("/stock")
+    def stock():
+        return render_template("stocks.html")
+
     @app.route("/database")
     def download():
         path = r"TornProject/API/players.db"
