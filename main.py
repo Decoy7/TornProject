@@ -13,6 +13,9 @@ def create_app():
     con_leaderboard = sqlite3.connect("TornProject/API/leaderboard.db")
     cur_leaderboard = con_leaderboard.cursor()
 
+    con_stock = sqlite3.connect("TornProject/API/foreign_stock.db")
+    cur_stock = con_stock.cursor()
+
     @app.route("/abroad")
     @app.route("/")
     def abroad():
@@ -129,7 +132,9 @@ def create_app():
 
     @app.route("/stock")
     def stock():
-        return render_template("stocks.html")
+        flowers = cur_stock.execute(f'SELECT name,quantity,country,update_time FROM Stock WHERE type == "Flower"').fetchall()
+        plushies = cur_stock.execute(f'SELECT name,quantity,country,update_time FROM Stock WHERE type == "Plushie"').fetchall()
+        return render_template("stocks.html", flowers=flowers, plushies=plushies)
 
     @app.route("/database")
     def download():
