@@ -83,8 +83,8 @@ uk[0] = {
     "update" : uk_update
 }
 uk[1] = {
-    "name" : resp["stocks"]["uni"]["stocks"][6]["name"],
-    "quantity" : (resp["stocks"]["uni"]["stocks"][6]["quantity"]),
+    "name" : resp["stocks"]["uni"]["stocks"][5]["name"],
+    "quantity" : (resp["stocks"]["uni"]["stocks"][5]["quantity"]),
     "update" : uk_update
 }
 uk[2] = {
@@ -140,13 +140,13 @@ japan[0] = {
 ################# CHINA #################
 china = {}
 china[0] = {
-        "name" : resp["stocks"]["chi"]["stocks"][9]["name"],
-        "quantity" : (resp["stocks"]["chi"]["stocks"][9]["quantity"]),
+        "name" : resp["stocks"]["chi"]["stocks"][0]["name"],
+        "quantity" : (resp["stocks"]["chi"]["stocks"][0]["quantity"]),
         "update" : china_update
 }
 china[1] = {
-        "name" : resp["stocks"]["chi"]["stocks"][0]["name"],
-        "quantity" : (resp["stocks"]["chi"]["stocks"][0]["quantity"]),
+        "name" : resp["stocks"]["chi"]["stocks"][9]["name"],
+        "quantity" : (resp["stocks"]["chi"]["stocks"][9]["quantity"]),
         "update" : china_update
 }
 ################# CHINA #################
