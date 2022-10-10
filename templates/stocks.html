@@ -16,18 +16,16 @@
                         <th scope="col">Last Update</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
+                    {% for i in range(11) %}
                     <tr>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>@Test</td>
+                        <td>{{ flowers[i][0] }}</td>
+                        <td>{{ flowers[i][1] }}</td>
+                        <td>{{ flowers[i][2] }}</td>
+                        <td>{{ flowers[i][3] }}</td>
                     </tr>
-                    <tr>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>@Test</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
 
             </table>
@@ -47,19 +45,14 @@
                 </thead>
                 
                 <tbody>
-
+                    {% for i in range(10) %}
                     <tr>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
+                        <td>{{ plushies[i][0] }}</td>
+                        <td>{{ plushies[i][1] }}</td>
+                        <td>{{ plushies[i][2] }}</td>
+                        <td>{{ plushies[i][3] }}</td>
                     </tr>
-
-                    <tr>
-                        <td>Test</td>
-                        <td>Test</td>
-                        <td>Test</td>
-                    </tr>
-
+                    {% endfor %}
                 </tbody>
 
             </table>
