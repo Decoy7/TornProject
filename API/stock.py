@@ -11,17 +11,17 @@ cur_stock = con_stock.cursor()
 resp = loads(get("https://yata.yt/api/v1/travel/export/").content)
 
 #Calculate froom unix time into UTC time ex. "2022-10-08 20:51:17" as string variable
-mexico_update = datetime.utcfromtimestamp(int(resp["stocks"]["mex"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-cayman_update = datetime.utcfromtimestamp(int(resp["stocks"]["cay"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-canada_update = datetime.utcfromtimestamp(int(resp["stocks"]["can"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-hawaii_update = datetime.utcfromtimestamp(int(resp["stocks"]["haw"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-uk_update = datetime.utcfromtimestamp(int(resp["stocks"]["uni"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-argentina_update = datetime.utcfromtimestamp(int(resp["stocks"]["arg"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-switzerland_update = datetime.utcfromtimestamp(int(resp["stocks"]["swi"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-japan_update = datetime.utcfromtimestamp(int(resp["stocks"]["jap"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-china_update = datetime.utcfromtimestamp(int(resp["stocks"]["chi"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-uae_update = datetime.utcfromtimestamp(int(resp["stocks"]["uae"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
-sa_update = datetime.utcfromtimestamp(int(resp["stocks"]["sou"]["update"])).strftime("%Y-%m-%d %H:%M:%S")
+mexico_update = datetime.utcfromtimestamp(int(resp["stocks"]["mex"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+cayman_update = datetime.utcfromtimestamp(int(resp["stocks"]["cay"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+canada_update = datetime.utcfromtimestamp(int(resp["stocks"]["can"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+hawaii_update = datetime.utcfromtimestamp(int(resp["stocks"]["haw"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+uk_update = datetime.utcfromtimestamp(int(resp["stocks"]["uni"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+argentina_update = datetime.utcfromtimestamp(int(resp["stocks"]["arg"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+switzerland_update = datetime.utcfromtimestamp(int(resp["stocks"]["swi"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+japan_update = datetime.utcfromtimestamp(int(resp["stocks"]["jap"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+china_update = datetime.utcfromtimestamp(int(resp["stocks"]["chi"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+uae_update = datetime.utcfromtimestamp(int(resp["stocks"]["uae"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
+sa_update = datetime.utcfromtimestamp(int(resp["stocks"]["sou"]["update"])).strftime("%H:%M:%S %Y-%m-%d")
 #Calculate froom unix time into UTC time ex. "2022-10-08 20:51:17" as string variable
 
 ################# MEXICO #################
